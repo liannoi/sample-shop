@@ -4,10 +4,11 @@ using Shop.Application.Entities;
 
 namespace Shop.Application.Storage.SalePos
 {
-    public class SalePosRepository : BaseBusinessService<Domain.Entities.SalePos, SalePosDto>
+    public sealed class SalePosRepository : BaseBusinessService<Domain.Entities.SalePos, SalePosDto>
     {
         public SalePosRepository(IDataService<Domain.Entities.SalePos> dataService) : base(dataService)
         {
+            Mapper = InitializeMapper();
         }
     }
 }

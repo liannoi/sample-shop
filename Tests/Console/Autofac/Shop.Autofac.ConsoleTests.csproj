@@ -5,18 +5,19 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B1FE7509-4E3B-406C-B618-D3C145ECF651}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shop.Application</RootNamespace>
-    <AssemblyName>Shop.Application</AssemblyName>
+    <ProjectGuid>{6FA1CD29-B49D-4C40-9D0B-6172586A15A7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Shop.Autofac.ConsoleTests</RootNamespace>
+    <AssemblyName>Shop.Autofac.ConsoleTests</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,6 +27,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -36,12 +38,6 @@
   <ItemGroup>
     <Reference Include="Autofac, Version=5.1.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Autofac.5.1.2\lib\net461\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
-    </Reference>
-    <Reference Include="AutoMapper.Extensions.ExpressionMapping, Version=3.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\AutoMapper.Extensions.ExpressionMapping.3.1.0\lib\net461\AutoMapper.Extensions.ExpressionMapping.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
@@ -70,42 +66,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependencyInjectionModule.cs" />
-    <Compile Include="Entities\CategoryDto.cs" />
-    <Compile Include="Entities\GoodDto.cs" />
-    <Compile Include="Entities\ManufacturerDto.cs" />
-    <Compile Include="Entities\PhotoDto.cs" />
-    <Compile Include="Entities\SaleDto.cs" />
-    <Compile Include="Entities\SalePosDto.cs" />
+    <Compile Include="DependencyInjection\ConsoleContainerConfig.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Storage\Category\CategoryRepository.cs" />
-    <Compile Include="Storage\Category\CategoryService.cs" />
-    <Compile Include="Storage\Good\GoodRepository.cs" />
-    <Compile Include="Storage\Good\GoodService.cs" />
-    <Compile Include="Storage\Manufacturer\ManufacturerRepository.cs" />
-    <Compile Include="Storage\Manufacturer\ManufacturerService.cs" />
-    <Compile Include="Storage\Photo\PhotoRepository.cs" />
-    <Compile Include="Storage\Photo\PhotoService.cs" />
-    <Compile Include="Storage\SalePos\SalePosRepository.cs" />
-    <Compile Include="Storage\SalePos\SalePosService.cs" />
-    <Compile Include="Storage\Sale\SaleRepository.cs" />
-    <Compile Include="Storage\Sale\SaleService.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Infrastructure.Application\Infrastructure.Application.csproj">
+    <ProjectReference Include="..\..\..\Src\Core\Application\Shop.Application.csproj">
+      <Project>{B1FE7509-4E3B-406C-B618-D3C145ECF651}</Project>
+      <Name>Shop.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Src\Infrastructure.Application\Infrastructure.Application.csproj">
       <Project>{A79FBCF6-E971-4C53-8150-6BC5FB1D8778}</Project>
       <Name>Infrastructure.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain\Shop.Domain.csproj">
-      <Project>{EA946EC5-7676-4663-BB70-09B583743192}</Project>
-      <Name>Shop.Domain</Name>
+    <ProjectReference Include="..\..\..\Src\Persistence\Shop.Persistence.csproj">
+      <Project>{68F1A9D7-9B6E-48A2-9E97-68779E150047}</Project>
+      <Name>Shop.Persistence</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
