@@ -1,14 +1,12 @@
-﻿using System.Data.Entity;
-using Autofac;
+﻿using Autofac;
 using Infrastructure.Application.Core.DependencyInjection;
 using Shop.Application;
-using Shop.Persistence;
 
 namespace Shop.Autofac.ConsoleTests.DependencyInjection
 {
-    public sealed class ConsoleContainerConfig : ContainerConfig<DependencyInjectionModule>
+    public sealed class ContainerConfig : ContainerConfig<DependencyInjectionModule>
     {
-        public ConsoleContainerConfig()
+        public ContainerConfig()
         {
             Container = Build();
         }
@@ -16,7 +14,7 @@ namespace Shop.Autofac.ConsoleTests.DependencyInjection
         public override IContainer Build()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<ShopContext>().As<DbContext>();
+            builder.RegisterModule<Persistence.DependencyInjectionModule>();
             builder.RegisterModule<DependencyInjectionModule>();
             return builder.Build();
         }

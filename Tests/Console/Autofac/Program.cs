@@ -12,7 +12,7 @@ namespace Shop.Autofac.ConsoleTests
         private static void Main(string[] args)
         {
             // Setup.
-            var containerConfig = new ConsoleContainerConfig();
+            var containerConfig = new ContainerConfig();
 
             containerConfig.Container.Resolve<IBusinessService<GoodDto>>().Select().ToList()
                 .ForEach(e => Console.WriteLine($"{e.GoodName} {e.ManufacturerName}"));

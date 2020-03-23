@@ -1,12 +1,11 @@
 ﻿using Autofac;
 using Infrastructure.Application.Core.DependencyInjection;
-using Shop.Application;
 
 namespace Shop.UnitOfWork.ConsoleTests.DependencyInjection
 {
-    public sealed class ConsoleContainerConfig : ContainerConfig<DependencyInjectionModule>
+    public sealed class ContainerConfig : ContainerConfig<DependencyInjectionModule>
     {
-        public ConsoleContainerConfig()
+        public ContainerConfig()
         {
             Container = Build();
         }
@@ -14,7 +13,8 @@ namespace Shop.UnitOfWork.ConsoleTests.DependencyInjection
         public override IContainer Build()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterModule<ConsoleDependencyInjectionModule>();
+            builder.RegisterModule<Persistence.DependencyInjectionModule>();
+            builder.RegisterModule<Application.DependencyInjectionModule>();
             builder.RegisterModule<DependencyInjectionModule>();
             return builder.Build();
         }

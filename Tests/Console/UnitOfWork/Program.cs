@@ -14,7 +14,7 @@ namespace Shop.UnitOfWork.ConsoleTests
         private static void Main(string[] args)
         {
             // Setup.
-            var containerConfig = new ConsoleContainerConfig();
+            var containerConfig = new ContainerConfig();
 
             var unitOfWorkHandler = containerConfig.Container.Resolve<ISaleUnitOfWorkHandler<ICart<int, int>>>();
             unitOfWorkHandler.MakePurchase(new SaleDto {HireDate = DateTime.Now, UserId = 1}, new List<Cart>
