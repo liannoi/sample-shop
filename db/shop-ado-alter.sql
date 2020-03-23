@@ -1,0 +1,39 @@
+USE ShopAdo;
+GO
+
+IF (OBJECT_ID('CHK_Goods_GoodCount','C') IS NOT NULL)
+ALTER TABLE dbo.Good DROP CONSTRAINT CHK_Goods_GoodCount;
+
+ALTER TABLE dbo.Good ADD CONSTRAINT CHK_Goods_GoodCount CHECK (GoodCount >= 0);
+
+IF (OBJECT_ID('Photo','U') IS NOT NULL)
+DROP TABLE dbo.Photo;
+
+CREATE TABLE dbo.Photo
+(
+    PhotoId INT PRIMARY KEY IDENTITY,
+    GoodId INT NOT NULL FOREIGN KEY REFERENCES dbo.Good(GoodId),
+    PhotoPath NVARCHAR(256) NOT NULL
+);
+
+IF (OBJECT_ID('Sale','U') IS NOT NULL)
+DROP TABLE dbo.Sale;
+
+CREATE TABLE dbo.Sale
+(
+    SaleId INT PRIMARY KEY IDENTITY,
+    HireDate DATETIME NOT NULL DEFAULT(GETDATE()),
+    UserId INT NOT NULL DEFAULT(1)
+);
+
+IF (OBJECT_ID('SalePos','U') IS NOT NULL)
+DROP TABLE dbo.SalePos;
+
+CREATE TABLE dbo.SalePos
+(
+    SalePosId INT PRIMARY KEY IDENTITY,
+    SaleId INT NOT NULL FOREIGN KEY REFERENCES dbo.Sale(SaleId),
+    GoodId INT NOT NULL FOREIGN KEY REFERENCES dbo.Good(GoodId),
+    GoodCount INT NOT NULL DEFAULT(1),
+    UnitPrice DECIMAL NOT NULL DEFAULT(0)
+);
