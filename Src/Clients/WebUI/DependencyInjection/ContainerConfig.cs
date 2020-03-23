@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Infrastructure.Application.Core.DependencyInjection;
+using Shop.Application;
 
 namespace Shop.WebUI.DependencyInjection
 {
@@ -22,7 +23,6 @@ namespace Shop.WebUI.DependencyInjection
             // Registration.
             containerBuilder.RegisterControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
             containerBuilder.RegisterModule<Persistence.DependencyInjectionModule>();
-            containerBuilder.RegisterModule<Application.DependencyInjectionModule>();
             containerBuilder.RegisterModule<DependencyInjectionModule>();
 
             // Setup.
