@@ -61,8 +61,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Shop.Domain\Shop.Domain.csproj">
-      <Project>{EA946EC5-7676-4663-BB70-09B583743192}</Project>
+    <ProjectReference Include="..\Core\Domain\Shop.Domain.csproj">
+      <Project>{ea946ec5-7676-4663-bb70-09b583743192}</Project>
       <Name>Shop.Domain</Name>
     </ProjectReference>
   </ItemGroup>
