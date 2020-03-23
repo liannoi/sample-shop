@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "console", "console", "{1072
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Autofac.ConsoleTests", "Tests\Console\Autofac\Shop.Autofac.ConsoleTests.csproj", "{6FA1CD29-B49D-4C40-9D0B-6172586A15A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.UnitOfWork.ConsoleTests", "Tests\Console\UnitOfWork\Shop.UnitOfWork.ConsoleTests.csproj", "{C8BCD689-D7CF-4C84-8100-5246A5F0B57D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{6FA1CD29-B49D-4C40-9D0B-6172586A15A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FA1CD29-B49D-4C40-9D0B-6172586A15A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FA1CD29-B49D-4C40-9D0B-6172586A15A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8BCD689-D7CF-4C84-8100-5246A5F0B57D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8BCD689-D7CF-4C84-8100-5246A5F0B57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8BCD689-D7CF-4C84-8100-5246A5F0B57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8BCD689-D7CF-4C84-8100-5246A5F0B57D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{EA946EC5-7676-4663-BB70-09B583743192} = {E798EC62-143B-48F6-8608-0AEE2E77E3D7}
 		{1072B636-316E-46CF-8C77-70343F1B4BB5} = {EF39894A-F14F-49F3-A650-AE3AD362D89A}
 		{6FA1CD29-B49D-4C40-9D0B-6172586A15A7} = {1072B636-316E-46CF-8C77-70343F1B4BB5}
+		{C8BCD689-D7CF-4C84-8100-5246A5F0B57D} = {1072B636-316E-46CF-8C77-70343F1B4BB5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D64260AE-D593-436E-8DE3-665CCE09B3DA}

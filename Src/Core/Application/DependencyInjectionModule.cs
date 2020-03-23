@@ -7,8 +7,11 @@ using Shop.Application.Storage.Good;
 using Shop.Application.Storage.Manufacturer;
 using Shop.Application.Storage.Photo;
 using Shop.Application.Storage.Sale;
+using Shop.Application.Storage.Sale.UnitOfWork;
+using Shop.Application.Storage.Sale.UnitOfWork.Handler;
 using Shop.Application.Storage.SalePos;
 using Shop.Domain.Entities;
+using Shop.Domain.ValueObjects;
 
 namespace Shop.Application
 {
@@ -16,12 +19,17 @@ namespace Shop.Application
     {
         protected override void Load(ContainerBuilder builder)
         {
+            // Storage.
             RegisterStorage<CategoryService, Category, CategoryRepository, CategoryDto>(builder);
             RegisterStorage<GoodService, Good, GoodRepository, GoodDto>(builder);
             RegisterStorage<ManufacturerService, Manufacturer, ManufacturerRepository, ManufacturerDto>(builder);
             RegisterStorage<PhotoService, Photo, PhotoRepository, PhotoDto>(builder);
             RegisterStorage<SaleService, Sale, SaleRepository, SaleDto>(builder);
             RegisterStorage<SalePosService, SalePos, SalePosRepository, SalePosDto>(builder);
+
+            // Sales transactions.
+            builder.RegisterType<SaleUnitOfWork>().As<ISaleUnitOfWork>();
+            builder.RegisterType<SaleUnitOfWorkHandler>().As<ISaleUnitOfWorkHandler<ICart<int, int>>>();
         }
 
         // ReSharper disable once MemberCanBeMadeStatic.Local

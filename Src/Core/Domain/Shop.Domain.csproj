@@ -58,6 +58,7 @@
     <Compile Include="Entities\Sale.cs" />
     <Compile Include="Entities\SalePos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueObjects\ICart.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
