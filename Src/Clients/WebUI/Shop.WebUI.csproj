@@ -241,6 +241,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ClientApp\Consts.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\Helpers\ControllerHelper.cs" />
     <Compile Include="Controllers\Helpers\IControllerHelper.cs" />
     <Compile Include="Controllers\Helpers\IControllerViewBagHelper.cs" />
@@ -271,6 +272,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Manufacturers\Update.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\Update.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -14,7 +14,7 @@ namespace Shop.Domain.Entities
             Goods = new HashSet<Good>();
         }
 
-        public int CategoryId { get; set; }
+        [Key] public int CategoryId { get; set; }
 
         [Required] [StringLength(20)] public string CategoryName { get; set; }
 

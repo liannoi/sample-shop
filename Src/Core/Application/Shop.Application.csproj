@@ -81,10 +81,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\Category\CategoryRepository.cs" />
     <Compile Include="Storage\Category\CategoryService.cs" />
+    <Compile Include="Storage\Category\CategoryStorage.cs" />
     <Compile Include="Storage\Good\GoodRepository.cs" />
     <Compile Include="Storage\Good\GoodService.cs" />
     <Compile Include="Storage\Manufacturer\ManufacturerRepository.cs" />
     <Compile Include="Storage\Manufacturer\ManufacturerService.cs" />
+    <Compile Include="Storage\Manufacturer\ManufacturerStorage.cs" />
     <Compile Include="Storage\Photo\PhotoRepository.cs" />
     <Compile Include="Storage\Photo\PhotoService.cs" />
     <Compile Include="Storage\SalePos\SalePosRepository.cs" />
