@@ -1,0 +1,13 @@
+﻿@model Shop.WebUI.ViewModels.GoodsFindByFilterViewModel
+
+@foreach (var item in Model.ListGoodInfos)
+{
+    <div class="col-md-4">
+        <hr>
+        <img src="@item.PhotoPath" height="200" alt=""/>
+        <hr>
+        <a href="#" class="btn btn-danger" data-goodid="@item.GoodId">@item.GoodName</a>
+        <br>
+        <a href="#" class="btn btn-warning" data-goodid="@item.GoodId">Add to Cart</a>
+    </div>
+}
