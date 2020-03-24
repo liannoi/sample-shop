@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 async function request(id, count) {
-    return await fetch(new Request('/UserPage/Update'),
+    return await fetch(new Request('/Users/Update'),
         {
             method: 'POST',
             headers: {
@@ -11,7 +11,7 @@ async function request(id, count) {
         }).then(
         function(response) {
             if (response.status === 200) {
-                window.location.href = '/UserPage/Cart';
+                window.location.href = '/Users/Show';
             }
         });
 };
@@ -25,10 +25,10 @@ function runtimeForGoodsCounts() {
 
 function runtimeForGoodsDelete() {
     const softDeleter = new SoftDeleter(document.querySelectorAll('.btn-cmd-delete'),
-        '/UserPage/Delete',
+        '/Users/Delete',
         'Product successfully removed from cart.',
         function() {
-            window.location.href = '/UserPage/Cart';
+            window.location.href = '/Users/Show';
         });
     softDeleter.subscribeToDelete();
 }

@@ -14,7 +14,7 @@ class SoftDeleter {
             {
                 method: 'DELETE',
                 headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
+                    'Content-Type': 'application/json'
                 }
             }).then(
             function(response) {

@@ -19,6 +19,8 @@ namespace Shop.WebUI.ViewModels.Users
             InitializeGoodViews();
         }
 
+        // ReSharper disable once CollectionNeverQueried.Global
+        // ReSharper disable once MemberCanBePrivate.Global
         public List<GoodView> GoodViews { get; private set; }
 
         private void InitializeGoodViews()

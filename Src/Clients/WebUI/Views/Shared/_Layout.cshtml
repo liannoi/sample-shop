@@ -11,7 +11,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    @Html.ActionLink("Store", "Index", "UserPage", null, new {@class = "navbar-brand"})
+    @Html.ActionLink("Store", "Index", "Users", null, new {@class = "navbar-brand"})
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,7 +32,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Cart", "UserPage")">
+                <a class="nav-link" href="@Url.Action("Show", "Users")">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
             </li>
