@@ -33,7 +33,7 @@ namespace Shop.WebUI.Controllers
         {
             TempData[Consts.GoodsFindBaseViewModelNameInTempData] = viewModel;
 
-            // TODO: Status code, not JSON.
+            // TODO: Status code, not JSON. (View - to vanilla js).
             return Json("OK");
         }
 

@@ -6,62 +6,6 @@
 
 @using (Html.BeginForm())
 {
-    @*<div class="row mb-5">
-            <div class="col-md-2">
-                <div class="row">
-                    <div class="col-md-2 block-selectable p-3">
-                        <h4>Manufacturers</h4>
-                        <hr>
-                        <div>
-                            @for (var i = 0; i < Model.ManufacturerChecks.Count; i++)
-                            {
-                                <div class="mt-2">
-                                    @Html.HiddenFor(x => Model.ManufacturerChecks[i].ManufacturerId)
-                                    @Html.CheckBoxFor(x => Model.ManufacturerChecks[i].IsCheck, new { @class = "checkbox" })
-                                    @Html.DisplayFor(x => Model.ManufacturerChecks[i].ManufacturerName)
-                                    @Html.HiddenFor(x => Model.ManufacturerChecks[i].ManufacturerName)
-                                </div>
-                            }
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    @Html.EditorFor(e => e.GoodName, new { htmlAttributes = new { @class = "ml-4 form-control w-100", placeholder = "Search" } })
-                                </div>
-                                <div class="col-md-1">
-                                    <button id="find" type="submit" class="btn btn-primary">Find</button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10 mt-5">
-                                    <div class="card-columns" id="goods"></div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 mt-5">
-                <div class="row">
-                    <div class="col-md-2 block-selectable p-3">
-                        <h4>Categories</h4>
-                        <hr>
-                        <div>
-                            @for (var i = 0; i < Model.CategoryChecks.Count; i++)
-                            {
-                                <div class="mt-2">
-                                    @Html.HiddenFor(x => Model.CategoryChecks[i].CategoryId)
-                                    @Html.CheckBoxFor(x => Model.CategoryChecks[i].IsCheck, new { @class = "checkbox" })
-                                    @Html.DisplayFor(x => Model.CategoryChecks[i].CategoryName)
-                                    @Html.HiddenFor(x => Model.CategoryChecks[i].CategoryName)
-                                </div>
-                            }
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>*@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -131,7 +75,6 @@
 
 @section Scripts{
     <script>
-        // TODO: To vanilla js.
         $(function() {
             $('#find').click(function(e) {
                 e.preventDefault();
