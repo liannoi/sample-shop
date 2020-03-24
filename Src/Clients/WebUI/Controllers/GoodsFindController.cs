@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using Infrastructure.Application.Core.BusinessServices;
 using Shop.Application.Entities;
-using Shop.WebUI.ViewModels;
+using Shop.WebUI.ViewModels.GoodsFind;
 
 namespace Shop.WebUI.Controllers
 {
@@ -23,16 +23,15 @@ namespace Shop.WebUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            return View(new GoodsFindViewModel(_categoryRepository, _manufacturerRepository));
+            return View(new BaseViewModel(_categoryRepository, _manufacturerRepository));
         }
 
         [HttpPost]
-        public JsonResult Index(GoodsFindViewModel viewModel)
+        public JsonResult Index(BaseViewModel viewModel)
         {
-            // TODO: Make to Consts.cs.
-            TempData["data"] = viewModel;
+            TempData[Consts.GoodsFindBaseViewModelNameInTempData] = viewModel;
 
             // TODO: Status code, not JSON.
             return Json("OK");
@@ -42,11 +41,10 @@ namespace Shop.WebUI.Controllers
         [ActionName("_GoodByFilter")]
         public PartialViewResult GoodByFilter()
         {
-            GoodsFindViewModel filter = null;
-            if (TempData["data"] != null) filter = TempData["data"] as GoodsFindViewModel;
-            var model = new GoodsFindByFilterViewModel(_photoRepository, _goodRepository,
-                filter ?? new GoodsFindViewModel());
-            return PartialView(model);
+            return PartialView(new ByFilterViewModel(_photoRepository, _goodRepository,
+                TempData[Consts.GoodsFindBaseViewModelNameInTempData] != null
+                    ? TempData[Consts.GoodsFindBaseViewModelNameInTempData] as BaseViewModel
+                    : new BaseViewModel()));
         }
     }
 }

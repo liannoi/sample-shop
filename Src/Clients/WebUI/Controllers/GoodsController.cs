@@ -37,7 +37,7 @@ namespace Shop.WebUI.Controllers
         {
             var model = id == 0 ? new GoodDto() : _goodRepository.SelectSafe(id);
 
-            // TODO: Convert to ViewModel.
+            // TODO: Encapsulate in ViewModel.
             ViewBag.ManufacturerId = new SelectList(new List<ManufacturerDto>
                 {
                     new ManufacturerDto
@@ -64,7 +64,7 @@ namespace Shop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(GoodDto good)
+        public RedirectToRouteResult Update(GoodDto good)
         {
             _controllerHelper.CheckModelState();
 

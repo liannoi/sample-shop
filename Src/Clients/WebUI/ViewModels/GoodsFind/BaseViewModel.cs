@@ -6,33 +6,19 @@ using Infrastructure.Application.Core.BusinessServices;
 using LinqKit;
 using Shop.Application.Entities;
 
-namespace Shop.WebUI.ViewModels
+namespace Shop.WebUI.ViewModels.GoodsFind
 {
-    public class CategoryCheck
-    {
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
-        public bool IsCheck { get; set; }
-    }
-
-    public class ManufacturerCheck
-    {
-        public int ManufacturerId { get; set; }
-        public string ManufacturerName { get; set; }
-        public bool IsCheck { get; set; }
-    }
-
     [Serializable]
-    public class GoodsFindViewModel
+    public class BaseViewModel
     {
         private readonly IBusinessService<CategoryDto> _categoryRepository;
         private readonly IBusinessService<ManufacturerDto> _manufacturerRepository;
 
-        public GoodsFindViewModel()
+        public BaseViewModel()
         {
         }
 
-        public GoodsFindViewModel(IBusinessService<CategoryDto> categoryRepository,
+        public BaseViewModel(IBusinessService<CategoryDto> categoryRepository,
             IBusinessService<ManufacturerDto> manufacturerRepository)
         {
             _categoryRepository = categoryRepository;
@@ -78,6 +64,20 @@ namespace Shop.WebUI.ViewModels
 
                 return predicate;
             }
+        }
+
+        public class CategoryCheck
+        {
+            public int CategoryId { get; set; }
+            public string CategoryName { get; set; }
+            public bool IsCheck { get; set; }
+        }
+
+        public class ManufacturerCheck
+        {
+            public int ManufacturerId { get; set; }
+            public string ManufacturerName { get; set; }
+            public bool IsCheck { get; set; }
         }
     }
 }
