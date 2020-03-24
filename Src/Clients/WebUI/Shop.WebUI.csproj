@@ -118,6 +118,7 @@
   <ItemGroup>
     <Content Include="ClientApp\res\img-goods\0f1b6385-213c-4e9a-8391-346679dd5144.png" />
     <Content Include="ClientApp\res\static\not-photo.png" />
+    <Content Include="ClientApp\vendor\css\goodsFind-index.css" />
     <Content Include="ClientApp\vendor\css\photo-index.css" />
     <Content Include="ClientApp\vendor\css\photo-upload.css" />
     <Content Include="ClientApp\vendor\css\userPage-index.css" />

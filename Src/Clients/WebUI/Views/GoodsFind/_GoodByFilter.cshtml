@@ -2,12 +2,12 @@
 
 @foreach (var item in Model.ListGoodInfos)
 {
-    <div class="col-md-4">
-        <hr>
-        <img src="@item.PhotoPath" height="200" alt=""/>
-        <hr>
-        <a href="#" class="btn btn-danger" data-goodid="@item.GoodId">@item.GoodName</a>
-        <br>
-        <a href="#" class="btn btn-warning" data-goodid="@item.GoodId">Add to Cart</a>
+    // TODO: Rename data attribute.
+    <div class="card mb-3">
+        <img src="@item.PhotoPath" alt="No image" class="card-img-top"/>
+        <div class="card-body">
+            <h5 class="card-title">@item.GoodName</h5>
+            <a href="#" class="btn btn-success btn-cmd-add mt-2" data-goodid="@item.GoodId">Add to Cart</a>
+        </div>
     </div>
 }

@@ -11,15 +11,26 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    @Html.ActionLink("Store", "Index", "Users", null, new {@class = "navbar-brand"})
+    @Html.ActionLink("Store", "Index", "GoodsFind", null, new {@class = "navbar-brand"})
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                @Html.ActionLink("Catalog", "Index", "Users", null, new {@class = "nav-link"})
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Show", "Users")">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </li>
+            <li class="ml-md-4 mt-md-1 nav-item">
+                <div class="btn-group dropleft">
+                    <button type="button" class="btn btn-outline-warning btn-sm dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                         Admin-side
                     </button>
                     <div class="dropdown-menu">
@@ -28,13 +39,6 @@
                         <button class="dropdown-item" type="button">@Html.ActionLink("Goods", "Index", "Goods", null, new {@class = "text-dark nav-link"})</button>
                     </div>
                 </div>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Show", "Users")">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
             </li>
         </ul>
     </div>

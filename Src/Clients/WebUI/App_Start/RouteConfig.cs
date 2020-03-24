@@ -11,7 +11,7 @@ namespace Shop.WebUI
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}/{id}",
-                new {controller = "Users", action = "Index", id = UrlParameter.Optional}
+                new {controller = "GoodsFind", action = "Index", id = UrlParameter.Optional}
             );
         }
     }

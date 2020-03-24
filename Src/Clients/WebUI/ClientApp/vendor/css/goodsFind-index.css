@@ -1,0 +1,8 @@
+﻿.block-selectable {
+    border: 1px solid #EBEBEB;
+    transition: .4s;
+}
+
+.block-selectable .checkbox { cursor: pointer; }
+
+.block-selectable:hover { box-shadow: 0 10px 25px -5px rgba(239, 239, 239, 0.79); }
