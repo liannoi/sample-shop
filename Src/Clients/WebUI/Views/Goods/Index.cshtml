@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Shop.Application.Entities.GoodDto>
+
+@{
+    ViewBag.Title = "Goods";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Goods</h2>
+        <hr>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-12">
+        @Html.ActionLink("New...", "Update", new {id = 0}, new {@class = "btn btn-success"})
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+            <tr class="thead-light">
+                <th>Name</th>
+                <th>Manufacturer</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Count</th>
+                <th>Actions</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GoodName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ManufacturerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GoodCount)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Photos", "Index", "Photo", new {id = item.GoodId}, new {@class = "btn btn-warning"})
+                        @Html.ActionLink("Edit...", "Update", new {id = item.GoodId}, new {@class = "btn btn-secondary", data_id = item.GoodId})
+                        @Html.ActionLink("Delete", "Delete", new {id = item.GoodId}, new {@class = "btn btn-outline-danger btn-cmd-delete", data_id = item.GoodId})
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="~/ClientApp/vendor/js/softDeleter.js"></script>
+    <script src="~/ClientApp/vendor/js/good-index.js"></script>
+}

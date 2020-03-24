@@ -242,6 +242,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ClientApp\Consts.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\Helpers\ControllerHelper.cs" />
     <Compile Include="Controllers\Helpers\IControllerHelper.cs" />
     <Compile Include="Controllers\Helpers\IControllerViewBagHelper.cs" />
@@ -274,6 +275,8 @@
     <Content Include="Views\Manufacturers\Update.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Categories\Update.cshtml" />
+    <Content Include="Views\Goods\Index.cshtml" />
+    <Content Include="Views\Goods\Update.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

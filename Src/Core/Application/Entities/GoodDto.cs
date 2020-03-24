@@ -5,7 +5,7 @@ namespace Shop.Application.Entities
 {
     public class GoodDto
     {
-        public int GoodId { get; set; }
+        [Key] public int GoodId { get; set; }
 
         [Required] [StringLength(100)] public string GoodName { get; set; }
 

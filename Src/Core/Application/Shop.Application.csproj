@@ -84,6 +84,7 @@
     <Compile Include="Storage\Category\CategoryStorage.cs" />
     <Compile Include="Storage\Good\GoodRepository.cs" />
     <Compile Include="Storage\Good\GoodService.cs" />
+    <Compile Include="Storage\Good\GoodStorage.cs" />
     <Compile Include="Storage\Manufacturer\ManufacturerRepository.cs" />
     <Compile Include="Storage\Manufacturer\ManufacturerService.cs" />
     <Compile Include="Storage\Manufacturer\ManufacturerStorage.cs" />

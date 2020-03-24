@@ -15,7 +15,7 @@ namespace Shop.Domain.Entities
             SalePos = new HashSet<SalePos>();
         }
 
-        public int GoodId { get; set; }
+        [Key] public int GoodId { get; set; }
 
         [Required] [StringLength(100)] public string GoodName { get; set; }
 
