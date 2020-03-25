@@ -4,7 +4,7 @@ using Infrastructure.Application.Core.BusinessServices;
 using Shop.Application.Entities;
 using Shop.WebUI.ViewModels.GoodsFind;
 
-namespace Shop.WebUI.Controllers
+namespace Shop.WebUI.Controllers.Sides.User
 {
     public class GoodsFindController : Controller
     {
@@ -25,12 +25,14 @@ namespace Shop.WebUI.Controllers
 
         // TODO: This view, javascript to separate file.
         [HttpGet]
+        [AllowAnonymous]
         public ViewResult Index()
         {
             return View(new BaseViewModel(_categoryRepository, _manufacturerRepository));
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public HttpStatusCodeResult Index(BaseViewModel viewModel)
         {
             TempData[Consts.GoodsFindBaseViewModelNameInTempData] = viewModel;
@@ -39,6 +41,7 @@ namespace Shop.WebUI.Controllers
 
         [HttpGet]
         [ActionName("_GoodByFilter")]
+        [AllowAnonymous]
         public PartialViewResult GoodByFilter()
         {
             return PartialView(new ByFilterViewModel(_photoRepository, _goodRepository,
