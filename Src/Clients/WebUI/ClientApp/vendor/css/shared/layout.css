@@ -1,0 +1,9 @@
+﻿@media (max-width: 62em) {
+    .fa-shopping-cart {
+        font-family: "HelveticaNeue", "Segoe UI", sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .fa-shopping-cart:before { content: 'Cart'; }
+}

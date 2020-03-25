@@ -1,0 +1,77 @@
+﻿@model Shop.WebUI.ViewModels.Users.CartViewModel
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+@if (Model.FriendlyCarts.Any())
+{
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Cart</h2>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Count</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                @for (var i = 0; i < Model.FriendlyCarts.Count; ++i)
+                {
+                    <tr>
+                        <th class="pt-3" scope="row">
+                            @{ var tmp = i + 1; }
+                            @tmp
+                        </th>
+                        <td class="pt-3">@Model.FriendlyCarts[i].GoodName</td>
+                        <td id="goodCountNumeric">
+                            @Html.EditorFor(model => model.FriendlyCarts[i].Cart.Carts[i].GoodCount, new {htmlAttributes = new {type = "number", max = "40", min = "1", step = "1", @class = "form-control col-sm-12 col-md-8", data_id = Model.FriendlyCarts[i].Cart.Carts[i].GoodId}})
+                        </td>
+                        <td class="pt-3">@Model.FriendlyCarts[i].GoodSum</td>
+                        <td>
+                            <button class="btn btn-outline-danger btn-cmd-delete" data-id="@Model.FriendlyCarts[i].Cart.Carts[i].GoodId">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="offset-md-9"></div>
+        <div class="col-md-3 mt-4">
+            <h3>Total: @Model.FriendlyCarts.Sum(friendlyCart => friendlyCart.GoodSum)</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h3>Your cart is currently empty, try adding products to it...</h3>
+            <hr>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="~/ClientApp/vendor/js/softDeleter.js"></script>
+    <script src="~/ClientApp/vendor/js/userPage-cart.js"></script>
+}
