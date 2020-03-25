@@ -9,7 +9,7 @@ using Shop.Application.Entities;
 using Shop.Application.Storage.Good;
 using Shop.Application.Storage.Photo;
 
-namespace Shop.WebUI.Controllers.Sides.Administrator
+namespace Shop.WebUI.Controllers
 {
     public class PhotosController : Controller
     {
@@ -24,7 +24,6 @@ namespace Shop.WebUI.Controllers.Sides.Administrator
 
         // TODO: This view, javascript to separate file.
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public ViewResult Index(int id)
         {
             // TODO: Encapsulate in ViewModel.
@@ -34,15 +33,12 @@ namespace Shop.WebUI.Controllers.Sides.Administrator
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public ViewResult Upload(int id)
         {
             return View(id);
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-        [ValidateAntiForgeryToken]
         public RedirectToRouteResult Upload(IEnumerable<HttpPostedFileBase> fileBases)
         {
             if (fileBases == null) throw new ArgumentNullException(nameof(fileBases));
@@ -65,7 +61,6 @@ namespace Shop.WebUI.Controllers.Sides.Administrator
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
         public HttpStatusCodeResult Delete(int id)
         {
             try
