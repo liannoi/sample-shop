@@ -6,7 +6,7 @@ using Shop.Application.Entities;
 using Shop.Application.Storage.Manufacturer;
 using Shop.WebUI.Controllers.Helpers;
 
-namespace Shop.WebUI.Controllers
+namespace Shop.WebUI.Controllers.Sides.Administrator
 {
     public class ManufacturersController : Controller
     {
@@ -20,12 +20,14 @@ namespace Shop.WebUI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ViewResult Index()
         {
             return View(_manufacturerRepository.Select());
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ViewResult Update(int id)
         {
             if (id == 0)
@@ -39,6 +41,8 @@ namespace Shop.WebUI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public RedirectToRouteResult Update(ManufacturerDto manufacturer)
         {
             _controllerHelper.CheckModelState();
@@ -52,6 +56,7 @@ namespace Shop.WebUI.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         public HttpStatusCodeResult Delete(int id)
         {
             try
