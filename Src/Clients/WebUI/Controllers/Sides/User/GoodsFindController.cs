@@ -4,7 +4,7 @@ using Infrastructure.Application.Core.BusinessServices;
 using Shop.Application.Entities;
 using Shop.WebUI.ViewModels.GoodsFind;
 
-namespace Shop.WebUI.Controllers
+namespace Shop.WebUI.Controllers.Sides.User
 {
     public class GoodsFindController : Controller
     {

@@ -9,7 +9,7 @@ using Shop.Application.Entities;
 using Shop.Application.Storage.Good;
 using Shop.Application.Storage.Photo;
 
-namespace Shop.WebUI.Controllers
+namespace Shop.WebUI.Controllers.Sides.Administrator
 {
     public class PhotosController : Controller
     {

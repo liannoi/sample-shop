@@ -5,7 +5,7 @@ using Shop.Application.Entities;
 using Shop.WebUI.Entities;
 using Shop.WebUI.ViewModels.Users;
 
-namespace Shop.WebUI.Controllers
+namespace Shop.WebUI.Controllers.Sides.Administrator
 {
     public class UsersController : Controller
     {

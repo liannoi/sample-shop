@@ -6,7 +6,7 @@ using Shop.Application.Entities;
 using Shop.Application.Storage.Manufacturer;
 using Shop.WebUI.Controllers.Helpers;
 
-namespace Shop.WebUI.Controllers
+namespace Shop.WebUI.Controllers.Sides.Administrator
 {
     public class ManufacturersController : Controller
     {
