@@ -346,6 +346,7 @@
     <Content Include="Views\AdministratorIdentity\Register.cshtml" />
     <Content Include="Views\AdministratorIdentity\Login.cshtml" />
     <Content Include="Views\UserIdentity\Login.cshtml" />
+    <Content Include="Views\Shared\Identity\_Partial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

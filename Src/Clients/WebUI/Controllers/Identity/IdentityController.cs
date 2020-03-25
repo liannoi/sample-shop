@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using Shop.WebUI.Identity.Models;
 
 namespace Shop.WebUI.Controllers.Identity
@@ -11,12 +12,21 @@ namespace Shop.WebUI.Controllers.Identity
         #region Identity (non actions)
 
         [HttpGet]
+        [AllowAnonymous]
         public RedirectResult CreateRole(string roleName)
         {
             var roleManager = HttpContext.GetOwinContext().GetUserManager<RoleManager<AppRole>>();
             if (!roleManager.RoleExists(roleName))
                 roleManager.Create(new AppRole(roleName));
             return Redirect(Url.Action("Index", "GoodsFind"));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public RedirectToRouteResult SignOut()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "GoodsFind");
         }
 
         #endregion
@@ -27,6 +37,14 @@ namespace Shop.WebUI.Controllers.Identity
         {
             foreach (var error in result.Errors) ModelState.AddModelError("", error);
         }
+
+        protected ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl)) return Redirect(returnUrl);
+            return RedirectToAction("Index", "Goods");
+        }
+
+        protected IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
 
         #endregion
     }

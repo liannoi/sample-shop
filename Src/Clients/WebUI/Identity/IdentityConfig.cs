@@ -19,7 +19,7 @@ namespace Shop.WebUI.Identity
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/GoodsFind/Login")
+                LoginPath = new PathString("/AdministratorIdentity/Login")
             });
         }
     }

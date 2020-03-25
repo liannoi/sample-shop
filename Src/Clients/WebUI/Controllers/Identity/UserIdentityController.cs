@@ -13,24 +13,27 @@ namespace Shop.WebUI.Controllers.Identity
     public class UserIdentityController : IdentityController
     {
         [HttpGet]
+        [AllowAnonymous]
         public ViewResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
             if (!ModelState.IsValid) return View(register);
 
+            // TODO: Refactor to common.
             var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
             var user = new AppUser {UserName = register.Email, Email = register.Email};
 
             var result = await userManager.CreateAsync(user, register.Password);
             if (result.Succeeded)
             {
-                HttpContext.GetOwinContext().Authentication.SignIn(
-                    new AuthenticationProperties {IsPersistent = false},
+                AuthenticationManager.SignIn(new AuthenticationProperties {IsPersistent = false},
                     userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie));
                 userManager.AddToRole(userManager.FindByName(register.Email).Id, Consts.UserRoleName);
                 return Redirect(Url.Action("Index", "GoodsFind"));
@@ -42,22 +45,26 @@ namespace Shop.WebUI.Controllers.Identity
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ViewResult Login()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel login)
         {
             if (!ModelState.IsValid) return View(login);
 
+            // TODO: Refactor to common.
             var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
 
             var user = userManager.Find(login.Email, login.Password);
             if (user != null)
             {
-                HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties {IsPersistent = false},
+                AuthenticationManager.SignIn(new AuthenticationProperties {IsPersistent = false},
                     userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie));
                 return Redirect(Url.Action("Index", "GoodsFind"));
             }

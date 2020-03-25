@@ -27,12 +27,14 @@ namespace Shop.WebUI.Controllers.Sides.Administrator
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ViewResult Index()
         {
             return View(_goodRepository.Select());
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ViewResult Update(int id)
         {
             var model = id == 0 ? new GoodDto() : _goodRepository.SelectSafe(id);
@@ -64,6 +66,8 @@ namespace Shop.WebUI.Controllers.Sides.Administrator
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
         public RedirectToRouteResult Update(GoodDto good)
         {
             _controllerHelper.CheckModelState();
@@ -77,6 +81,7 @@ namespace Shop.WebUI.Controllers.Sides.Administrator
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         public HttpStatusCodeResult Delete(int id)
         {
             try
