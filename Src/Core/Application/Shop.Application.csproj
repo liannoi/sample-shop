@@ -90,6 +90,7 @@
     <Compile Include="Storage\Manufacturer\ManufacturerStorage.cs" />
     <Compile Include="Storage\Photo\PhotoRepository.cs" />
     <Compile Include="Storage\Photo\PhotoService.cs" />
+    <Compile Include="Storage\Photo\PhotoStorage.cs" />
     <Compile Include="Storage\SalePos\SalePosRepository.cs" />
     <Compile Include="Storage\SalePos\SalePosService.cs" />
     <Compile Include="Storage\Sale\SaleRepository.cs" />

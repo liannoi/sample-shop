@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Shop.Application.Entities.PhotoDto>
+
+@{
+    ViewBag.Title = "Photos";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@ViewBag.Good.GoodName</h2>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-12">
+        @Html.ActionLink("Upload...", "Upload", "Photos", new {id = ViewBag.Good.GoodId}, new {@class = "btn btn-success"})
+    </div>
+</div>
+
+@if (Model.Any())
+{
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card-columns">
+                @foreach (var item in Model)
+                {
+                    <div class="card mb-3">
+                        <img src="@item.PhotoPath" class="card-img-top" alt="First preview">
+                        <div class="card-body">
+                            <a href="#" class="btn btn-outline-danger btn-cmd-delete" data-id="@item.PhotoId">Delete</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h3>This product doesn't contain any pictures.</h3>
+            <hr>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="~/ClientApp/vendor/js/softDeleter.js"></script>
+    <script>
+        'use strict';
+
+        function test() {
+            const softDeleter = new SoftDeleter(document.querySelectorAll('.btn-cmd-delete'),
+                '/Photos/Delete',
+                'Photo successfully removed.',
+                function() {
+                    window.location.href = "@Url.Action("Index", "Photos", new {id = ViewBag.Good.GoodId})";
+                });
+            softDeleter.subscribeToDelete();
+        }
+
+        test();
+    </script>
+}
+
+@section Styles{
+    <link href="~/ClientApp/vendor/css/photo-index.css" rel="stylesheet"/>
+}

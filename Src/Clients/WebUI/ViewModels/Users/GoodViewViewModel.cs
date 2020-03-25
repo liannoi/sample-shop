@@ -40,7 +40,7 @@ namespace Shop.WebUI.ViewModels.Users
             }
         }
 
-        public class GoodView : IGoodView<int>
+        public class GoodView : IGoodView<int, decimal>
         {
             public int GoodId { get; set; }
             public string GoodName { get; set; }

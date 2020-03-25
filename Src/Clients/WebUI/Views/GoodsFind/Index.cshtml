@@ -6,7 +6,7 @@
 
 @using (Html.BeginForm())
 {
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
             <div class="col-md-3">
                 <div class="container-fluid">
@@ -55,7 +55,7 @@
                             @Html.EditorFor(e => e.GoodName, new {htmlAttributes = new {@class = "form-control w-100", placeholder = "Search"}})
                         </div>
                         <div class="col-md-1">
-                            <button id="find" type="submit" class="btn btn-primary">Find</button>
+                            <button id="find" type="button" class="btn btn-primary">Find</button>
                         </div>
                     </div>
                     <div class="row">
@@ -74,27 +74,45 @@
 }
 
 @section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="~/ClientApp/vendor/js/cartHelper.js"></script>
     <script>
-        $(function() {
-            $('#find').click(function(e) {
-                e.preventDefault();
+        'use strict';
+
+        document.querySelector('#find').addEventListener('click',
+            function() {
+                this.blur();
+
+                // This is good, no need to try to rewrite to pure JavaScript.
                 const dataForm = $('form').serialize();
-                $.ajax({
-                    url: "@Url.Action("Index", "GoodsFind")",
-                    type: 'POST',
-                    data: dataForm,
-                    success: function(data) {
-                        if (data === "OK") {
-                            $('#goods').load("@Url.Action("_GoodByFilter", "GoodsFind")");
-                        } else {
-                            alert('ERROR');
+
+                fetch(new Request("@Url.Action("Index", "GoodsFind")"),
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: dataForm
+                    }).then(
+                    function(response) {
+                        if (response.status !== 200) {
+                            return;
                         }
-                    },
-                    error: function(data) {
-                        alert(data);
-                    }
-                });
+
+                        // This is good, no need to try to rewrite to pure JavaScript.
+                        $('#goods').load("@Url.Action("_GoodByFilter", "GoodsFind")",
+                            function() {
+                                const cartHelper = new CartHelper(document.querySelectorAll('.btn-cmd-add'),
+                                    '@Url.Action("Add", "Users")',
+                                    'Product successfully added to cart.');
+                                cartHelper.subscribe();
+                            });
+                    });
             });
-        })
+
+        window.addEventListener('load',
+            () => {
+                document.querySelector('#find').click();
+            });
     </script>
 }

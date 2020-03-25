@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - Store</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet"/>
+    <link href="~/ClientApp/vendor/css/shared/layout.css" rel="stylesheet"/>
     @RenderSection("Styles", false)
 </head>
 <body>
@@ -17,14 +18,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                @Html.ActionLink("Catalog", "Index", "Users", null, new {@class = "nav-link"})
-            </li>
-
+            <li class="nav-item"></li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Show", "Users")">
+                <a class="nav-link" href="@Url.Action("Cart", "Users")">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
             </li>
@@ -37,6 +35,8 @@
                         <button class="dropdown-item" type="button">@Html.ActionLink("Manufacturers", "Index", "Manufacturers", null, new {@class = "text-dark nav-link"})</button>
                         <button class="dropdown-item" type="button">@Html.ActionLink("Categories", "Index", "Categories", null, new {@class = "text-dark nav-link"})</button>
                         <button class="dropdown-item" type="button">@Html.ActionLink("Goods", "Index", "Goods", null, new {@class = "text-dark nav-link"})</button>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" type="button">@Html.ActionLink("Catalog", "Index", "Users", null, new {@class = "text-dark nav-link"})</button>
                     </div>
                 </div>
             </li>

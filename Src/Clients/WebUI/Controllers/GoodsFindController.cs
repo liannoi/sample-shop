@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Net;
+using System.Web.Mvc;
 using Infrastructure.Application.Core.BusinessServices;
 using Shop.Application.Entities;
 using Shop.WebUI.ViewModels.GoodsFind;
@@ -22,6 +23,7 @@ namespace Shop.WebUI.Controllers
             _photoRepository = photoRepository;
         }
 
+        // TODO: This view, javascript to separate file.
         [HttpGet]
         public ViewResult Index()
         {
@@ -29,12 +31,10 @@ namespace Shop.WebUI.Controllers
         }
 
         [HttpPost]
-        public JsonResult Index(BaseViewModel viewModel)
+        public HttpStatusCodeResult Index(BaseViewModel viewModel)
         {
             TempData[Consts.GoodsFindBaseViewModelNameInTempData] = viewModel;
-
-            // TODO: Status code, not JSON. (View - to vanilla js).
-            return Json("OK");
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
         [HttpGet]

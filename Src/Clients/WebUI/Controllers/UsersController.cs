@@ -18,6 +18,7 @@ namespace Shop.WebUI.Controllers
             _photoRepository = photoRepository;
         }
 
+        // TODO: This view, javascript to separate file.
         [HttpGet]
         public ViewResult Index()
         {
@@ -36,12 +37,9 @@ namespace Shop.WebUI.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
-        /// <summary>
-        ///     Cart display.
-        /// </summary>
-        /// <returns></returns>
+        // TODO: This view, javascript - ajax.
         [HttpGet]
-        public ViewResult Show()
+        public ViewResult Cart()
         {
             return View(new CartViewModel(_goodRepository, ReadCartFromSession()));
         }

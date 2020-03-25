@@ -34,15 +34,17 @@ namespace Shop.WebUI.ViewModels.GoodsFind
                 {
                     GoodId = goodDto.GoodId,
                     GoodName = goodDto.GoodName,
+                    Price = goodDto.Price,
                     PhotoPath = photo == null ? ClientApp.Consts.NotPhotoPath : photo.PhotoPath
                 };
                 ListGoodInfos.Add(goodInfo);
             }
         }
 
-        public class GoodInfo : IGoodInfo<int>
+        public class GoodInfo : IGoodInfo<int, decimal>
         {
             public int GoodId { get; set; }
+            public decimal Price { get; set; }
             public string GoodName { get; set; }
             public string PhotoPath { get; set; }
         }

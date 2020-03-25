@@ -119,9 +119,10 @@
     <Content Include="ClientApp\res\img-goods\0f1b6385-213c-4e9a-8391-346679dd5144.png" />
     <Content Include="ClientApp\res\static\not-photo.png" />
     <Content Include="ClientApp\vendor\css\goodsFind-index.css" />
+    <Content Include="ClientApp\vendor\css\shared\goods-cards.css" />
+    <Content Include="ClientApp\vendor\css\shared\layout.css" />
     <Content Include="ClientApp\vendor\css\photo-index.css" />
     <Content Include="ClientApp\vendor\css\photo-upload.css" />
-    <Content Include="ClientApp\vendor\css\userPage-index.css" />
     <Content Include="ClientApp\vendor\js\cartHelper.js" />
     <Content Include="ClientApp\vendor\js\category-index.js" />
     <Content Include="ClientApp\vendor\js\good-index.js" />
@@ -296,7 +297,9 @@
     <Content Include="Views\GoodsFind\Index.cshtml" />
     <Content Include="Views\GoodsFind\_GoodByFilter.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Users\Show.cshtml" />
+    <Content Include="Views\Users\Cart.cshtml" />
+    <Content Include="Views\Photos\Index.cshtml" />
+    <Content Include="Views\Photos\Upload.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -304,9 +307,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Photos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Application\Shop.Application.csproj">
       <Project>{B1FE7509-4E3B-406C-B618-D3C145ECF651}</Project>

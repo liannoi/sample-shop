@@ -1,0 +1,32 @@
+﻿@model int
+
+@{
+    ViewBag.Title = "Upload photo";
+}
+
+@using (Html.BeginForm("Upload", "Photos", FormMethod.Post, new {enctype = "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <h2>Upload photo for this product</h2>
+        <hr>
+
+        <input type="text" name="id" value="@Model" hidden/>
+
+        <div class="form-row mb-3">
+            <div class="col-md-3">
+                <div class="custom-file">
+                    <input type="file" name="fileUploadMulti" class="custom-file-input" id="uploadMultipleFiles" multiple required>
+                    <label class="custom-file-label" for="uploadMultipleFiles"></label>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-outline-primary" type="submit" id="uploadButton">Upload</button>
+    </div>
+}
+
+@section Styles{
+    <link href="~/ClientApp/vendor/css/photo-upload.css" rel="stylesheet"/>
+}
