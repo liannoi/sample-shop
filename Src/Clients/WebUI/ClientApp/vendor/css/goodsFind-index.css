@@ -30,11 +30,22 @@
     }
 }
 
-.block-selectable {
-    border: 1px solid #EBEBEB;
-    transition: .4s;
-}
+.block-selectable { border: 1px solid #EBEBEB; }
 
 .block-selectable .checkbox { cursor: pointer; }
 
 .block-selectable:hover { box-shadow: 0 10px 25px -5px rgba(239, 239, 239, 0.79); }
+
+#find {
+    background-color: white;
+    border-color: white;
+    border-radius: 11px;
+    color: #007bff;
+}
+
+.block-selectable,
+#find,
+.editor { transition: .4s; }
+
+.editor:hover,
+#find:hover { box-shadow: 0 10px 25px -5px rgba(239, 239, 239, 0.79) inset; }
