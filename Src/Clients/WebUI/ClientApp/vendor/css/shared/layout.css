@@ -7,3 +7,5 @@
 
     .fa-shopping-cart:before { content: 'Cart'; }
 }
+
+.dropdown-menu button:active { background-color: #EBEBEB; }
