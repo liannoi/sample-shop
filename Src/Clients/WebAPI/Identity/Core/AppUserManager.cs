@@ -2,10 +2,10 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using Shop.WebApi.Identity.Models;
-using Shop.WebApi.Identity.Stores;
+using Shop.WebApi.Identity.Core.Models;
+using Shop.WebApi.Identity.Core.Stores;
 
-namespace Shop.WebApi.Identity
+namespace Shop.WebApi.Identity.Core
 {
     public class AppUserManager : UserManager<AppUser>
     {
