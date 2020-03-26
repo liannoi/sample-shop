@@ -16,8 +16,21 @@ namespace Shop.WebApi.Identity.Core
         public static AppUserManager Create(IdentityFactoryOptions<AppUserManager> options, IOwinContext context)
         {
             var manager = new AppUserManager(new UserStore<AppUser>(context.Get<ShopIdentityWebApiContext>()));
+            
+            manager.UserValidator = new UserValidator<AppUser>(manager)
+            {
+                AllowOnlyAlphanumericUserNames = false,
+                RequireUniqueEmail = true
+            };
 
-            // TODO: Settings here...
+            manager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 6,
+                RequireNonLetterOrDigit = true,
+                RequireDigit = true,
+                RequireLowercase = true,
+                RequireUppercase = true
+            };
 
             return manager;
         }
