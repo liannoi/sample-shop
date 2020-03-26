@@ -1,10 +1,8 @@
 ﻿using System.Data.Entity;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Shop.WebUI.Identity.Models;
 
-namespace Shop.WebUI.Identity
+namespace Shop.WebUI.Identity.Stores
 {
     public class ShopIdentityContextInitializer : DropCreateDatabaseIfModelChanges<ShopIdentityContext>
     {
@@ -30,14 +28,5 @@ namespace Shop.WebUI.Identity
         }
 
         #endregion
-    }
-
-    public class ShopIdentityContext : IdentityDbContext<AppUser>
-    {
-        public ShopIdentityContext()
-        {
-            if (!Database.Exists())
-                Database.SetInitializer(new ShopIdentityContextInitializer());
-        }
     }
 }

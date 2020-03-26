@@ -5,6 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using Shop.WebUI.Identity.Models;
+using Shop.WebUI.Identity.Stores;
 
 namespace Shop.WebUI.Identity
 {
