@@ -1,0 +1,15 @@
+﻿@model Shop.Legacy.WebUI.ViewModels.GoodsFind.ByFilterViewModel
+
+@foreach (var item in Model.ListGoodInfos)
+{
+    <div class="card mb-3">
+        <img src="@item.PhotoPath" alt="No image" class="card-img-top"/>
+        <div class="card-body">
+            <h5 class="card-title">@item.GoodName</h5>
+            <a href="#" class="btn btn-success btn-cmd-add mt-2" data-id="@item.GoodId">Add to Cart</a>
+        </div>
+        <div class="card-footer">
+            <h6 class="text-muted">@item.Price</h6>
+        </div>
+    </div>
+}

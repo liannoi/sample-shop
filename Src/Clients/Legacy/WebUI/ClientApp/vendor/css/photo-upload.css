@@ -1,0 +1,3 @@
+﻿#uploadMultipleFiles:invalid ~ label:before { content: 'Choose file(-s) ...' }
+
+#uploadMultipleFiles:valid ~ label:before { content: 'Files selected' }

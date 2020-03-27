@@ -1,0 +1,52 @@
+﻿@model Shop.Legacy.WebUI.ViewModels.Users.GoodViewViewModel
+
+@{
+    ViewBag.Title = "Catalog";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Catalog</h2>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card-columns">
+            @foreach (var item in Model.GoodViews)
+            {
+                <div class="card mb-3">
+                    <img src="@item.PhotoPath" class="card-img-top" alt="First preview">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.GoodName</h5>
+                        <a href="#" class="btn btn-success btn-cmd-add mt-2" data-id="@item.GoodId">Add to Cart</a>
+                    </div>
+                    <div class="card-footer">
+                        <h6 class="text-muted">@item.Price</h6>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Styles{
+    <link href="~/ClientApp/vendor/css/shared/goods-cards.css" rel="stylesheet"/>
+}
+
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="~/ClientApp/vendor/js/cartHelper.js"></script>
+    <script>
+        'use strict';
+
+        function runtime() {
+            const cartHelper = new CartHelper(document.querySelectorAll('.btn-cmd-add'),
+                '@Url.Action("Add", "Users")',
+                'Product successfully added to cart.');
+            cartHelper.subscribe();
+        }
+
+        runtime();
+    </script>
+}
