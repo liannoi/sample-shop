@@ -1,8 +1,9 @@
 ﻿using System.Net;
 using System.Web.Mvc;
-using Infrastructure.Application.Core.BusinessServices;
+using Infrastructure.Application.Core.Services.Business;
 using Shop.Application.Entities;
-using Shop.Legacy.WebUI.ViewModels.GoodsFind;
+using Shop.Legacy.WebUI.System;
+using Shop.Legacy.WebUI.System.Models.View.GoodsFind;
 
 namespace Shop.Legacy.WebUI.Controllers.Sides.User
 {

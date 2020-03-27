@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
-using Shop.WebApi.Identity.Core;
+using Shop.WebApi.Identity.Core.Managers;
 
 namespace Shop.WebApi.Identity.Infrastructure.Providers
 {

@@ -277,7 +277,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ClientApp\Consts.cs" />
-    <Compile Include="Consts.cs" />
+    <Compile Include="System\Consts.cs" />
     <Compile Include="Controllers\Identity\AdministratorIdentityController.cs" />
     <Compile Include="Controllers\Identity\UserIdentityController.cs" />
     <Compile Include="Controllers\Sides\Administrator\CategoriesController.cs" />
@@ -290,28 +290,28 @@
     <Compile Include="Controllers\Sides\Administrator\ManufacturersController.cs" />
     <Compile Include="Controllers\Sides\Administrator\PhotosController.cs" />
     <Compile Include="Controllers\Sides\Administrator\UsersController.cs" />
-    <Compile Include="DependencyInjection\ContainerConfig.cs" />
-    <Compile Include="Entities\Cart.cs" />
-    <Compile Include="Entities\CartExtension.cs" />
-    <Compile Include="Entities\UserCart.cs" />
-    <Compile Include="Entities\UserCartExtensions.cs" />
-    <Compile Include="Exceptions\InvalidModelStateException.cs" />
+    <Compile Include="System\DependencyInjection\ContainerConfig.cs" />
+    <Compile Include="System\Models\Entities\Cart.cs" />
+    <Compile Include="System\Models\Entities\CartExtension.cs" />
+    <Compile Include="System\Models\Entities\UserCart.cs" />
+    <Compile Include="System\Models\Entities\UserCartExtensions.cs" />
+    <Compile Include="System\Exceptions\InvalidModelStateException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Identity\IdentityConfig.cs" />
-    <Compile Include="Identity\AppUserManager.cs" />
-    <Compile Include="Identity\Models\AppRole.cs" />
-    <Compile Include="Identity\Models\AppUser.cs" />
-    <Compile Include="Identity\Stores\ShopIdentityContext.cs" />
-    <Compile Include="Identity\Stores\ShopIdentityContextInitializer.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="System\Identity\Core\Managers\AppUserManager.cs" />
+    <Compile Include="System\Identity\Core\Models\AppRole.cs" />
+    <Compile Include="System\Identity\Core\Models\AppUser.cs" />
+    <Compile Include="System\Identity\Core\Stores\ShopIdentityContext.cs" />
+    <Compile Include="System\Identity\Core\Stores\ShopIdentityContextInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\GoodsFind\BaseViewModel.cs" />
-    <Compile Include="ViewModels\GoodsFind\ByFilterViewModel.cs" />
-    <Compile Include="ViewModels\Users\CartViewModel.cs" />
-    <Compile Include="Identity\ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\Users\GoodViewViewModel.cs" />
-    <Compile Include="Identity\ViewModels\RegisterViewModel.cs" />
+    <Compile Include="System\Models\View\GoodsFind\BaseViewModel.cs" />
+    <Compile Include="System\Models\View\GoodsFind\ByFilterViewModel.cs" />
+    <Compile Include="System\Models\View\Users\CartViewModel.cs" />
+    <Compile Include="System\Identity\Infrastructure\Models\Binding\LoginViewModel.cs" />
+    <Compile Include="System\Models\View\Users\GoodViewViewModel.cs" />
+    <Compile Include="System\Identity\Infrastructure\Models\Binding\RegisterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

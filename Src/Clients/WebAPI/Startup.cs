@@ -11,7 +11,7 @@ using Microsoft.Owin.Security.Jwt;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using Owin;
-using Shop.WebApi.Identity.Core;
+using Shop.WebApi.Identity.Core.Managers;
 using Shop.WebApi.Identity.Core.Stores;
 using Shop.WebApi.Identity.Infrastructure.Providers;
 

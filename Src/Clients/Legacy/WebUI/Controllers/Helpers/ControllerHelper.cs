@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Shop.Legacy.WebUI.Exceptions;
+using Shop.Legacy.WebUI.System.Exceptions;
 
 namespace Shop.Legacy.WebUI.Controllers.Helpers
 {

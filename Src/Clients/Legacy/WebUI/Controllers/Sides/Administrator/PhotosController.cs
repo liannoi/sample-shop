@@ -4,10 +4,11 @@ using System.IO;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Infrastructure.Application.Core.BusinessServices;
+using Infrastructure.Application.Core.Services.Business;
 using Shop.Application.Entities;
 using Shop.Application.Storage.Good;
 using Shop.Application.Storage.Photo;
+using Shop.Legacy.WebUI.ClientApp;
 
 namespace Shop.Legacy.WebUI.Controllers.Sides.Administrator
 {
@@ -53,11 +54,11 @@ namespace Shop.Legacy.WebUI.Controllers.Sides.Administrator
             {
                 var newFileName = $"{Guid.NewGuid()}{Path.GetExtension(Path.GetFileName(fileBase.FileName))}";
                 fileBase.SaveAs(Path.Combine(
-                    $"{AppDomain.CurrentDomain.BaseDirectory}{ClientApp.Consts.GoodsPhotosDirectory}", newFileName));
+                    $"{AppDomain.CurrentDomain.BaseDirectory}{Consts.GoodsPhotosDirectory}", newFileName));
                 _photoRepository.Add(new PhotoDto
                 {
                     GoodId = id,
-                    PhotoPath = $"{ClientApp.Consts.GoodsPhotosDirectory}{newFileName}"
+                    PhotoPath = $"{Consts.GoodsPhotosDirectory}{newFileName}"
                 });
             }
 

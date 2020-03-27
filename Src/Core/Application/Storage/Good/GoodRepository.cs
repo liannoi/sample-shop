@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.Extensions.ExpressionMapping;
-using Infrastructure.Application.Core.BusinessServices;
-using Infrastructure.Application.Core.DataServices;
+using Infrastructure.Application.Core.Services.Business;
+using Infrastructure.Application.Core.Services.Data;
 using Shop.Application.Entities;
 
 namespace Shop.Application.Storage.Good

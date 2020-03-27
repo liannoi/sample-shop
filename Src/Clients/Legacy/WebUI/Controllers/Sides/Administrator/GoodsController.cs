@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using Infrastructure.Application.Core.BusinessServices;
+using Infrastructure.Application.Core.Services.Business;
 using Shop.Application.Entities;
 using Shop.Application.Storage.Good;
 using Shop.Legacy.WebUI.Controllers.Helpers;

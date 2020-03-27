@@ -152,17 +152,17 @@
     <Compile Include="Identity\Consts.cs" />
     <Compile Include="Identity\Core\Stores\ShopIdentityWebApiContext.cs" />
     <Compile Include="Identity\Core\Stores\ShopIdentityWebApiContextInitializer.cs" />
-    <Compile Include="Identity\Infrastructure\Models\ModelFactory.cs" />
-    <Compile Include="Identity\Infrastructure\Models\UserReturnModel.cs" />
+    <Compile Include="Identity\Infrastructure\Models\Returnable\ModelFactory.cs" />
+    <Compile Include="Identity\Infrastructure\Models\Returnable\UserReturnModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Identity\Infrastructure\BindingModels\RegisterBindingModel.cs" />
+    <Compile Include="Identity\Infrastructure\Models\Binding\RegisterBindingModel.cs" />
     <Compile Include="Identity\Infrastructure\Providers\CustomJwtFormat.cs" />
     <Compile Include="Identity\Infrastructure\Providers\CustomOAuthProvider.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Identity\Core\Models\AppUser.cs" />
-    <Compile Include="Identity\Core\AppUserManager.cs" />
+    <Compile Include="Identity\Core\Managers\AppUserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

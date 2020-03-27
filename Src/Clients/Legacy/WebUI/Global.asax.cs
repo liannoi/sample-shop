@@ -1,7 +1,7 @@
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Shop.Legacy.WebUI.DependencyInjection;
+using Shop.Legacy.WebUI.System.DependencyInjection;
 
 namespace Shop.Legacy.WebUI
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Web.Mvc;
-using Infrastructure.Application.Core.BusinessServices;
+using Infrastructure.Application.Core.Services.Business;
 using Shop.Application.Entities;
 using Shop.Application.Storage.Category;
 using Shop.Legacy.WebUI.Controllers.Helpers;

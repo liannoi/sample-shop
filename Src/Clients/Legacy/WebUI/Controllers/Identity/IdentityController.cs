@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Shop.Legacy.WebUI.Identity.Models;
+using Shop.Legacy.WebUI.System.Identity.Core.Models;
 
 namespace Shop.Legacy.WebUI.Controllers.Identity
 {

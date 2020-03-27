@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Autofac;
-using Infrastructure.Application.Core.BusinessServices;
+using Infrastructure.Application.Core.Services.Business;
 using Shop.Application.Entities;
 using Shop.Autofac.ConsoleTests.DependencyInjection;
 

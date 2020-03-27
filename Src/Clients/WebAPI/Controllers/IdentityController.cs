@@ -4,12 +4,18 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Shop.WebApi.Identity;
 using Shop.WebApi.Identity.Core.Models;
-using Shop.WebApi.Identity.Infrastructure.BindingModels;
+using Shop.WebApi.Identity.Infrastructure.Models.Binding;
 
 namespace Shop.WebApi.Controllers
 {
     public class IdentityController : BaseController
     {
+        #region Test
+
+        [Authorize]
+
+        #endregion
+
         [HttpGet]
         [Route("api/identity/users")]
         public IHttpActionResult GetAllUsers()
@@ -55,7 +61,7 @@ namespace Shop.WebApi.Controllers
             var appUser = await AppUserManager.FindByIdAsync(id);
             if (appUser == null) return NotFound();
             var result = await AppUserManager.DeleteAsync(appUser);
-            return !result.Succeeded ? GetErrorResult(result) : Ok();
+            return !result.Succeeded ? GetErrorResult(result) : Ok(ModelFactory.Create(appUser));
         }
     }
 }

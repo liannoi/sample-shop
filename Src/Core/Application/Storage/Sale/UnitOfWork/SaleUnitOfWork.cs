@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Transactions;
-using Infrastructure.Application.Core.BusinessServices;
+using Infrastructure.Application.Core.Services.Business;
 using Shop.Application.Entities;
 
 namespace Shop.Application.Storage.Sale.UnitOfWork

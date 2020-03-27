@@ -4,9 +4,10 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Shop.Legacy.WebUI.Identity;
-using Shop.Legacy.WebUI.Identity.Models;
-using Shop.Legacy.WebUI.Identity.ViewModels;
+using Shop.Legacy.WebUI.System;
+using Shop.Legacy.WebUI.System.Identity.Core.Managers;
+using Shop.Legacy.WebUI.System.Identity.Core.Models;
+using Shop.Legacy.WebUI.System.Identity.Infrastructure.Models.Binding;
 
 namespace Shop.Legacy.WebUI.Controllers.Identity
 {

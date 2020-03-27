@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using Infrastructure.Application.Core.DependencyInjection;
-using Shop.Application;
+using Infrastructure.Application.Core.Helpers.DependencyInjection;
+using Shop.Application.Helpers.DependencyInjection;
 
 namespace Shop.Autofac.ConsoleTests.DependencyInjection
 {
@@ -14,7 +14,7 @@ namespace Shop.Autofac.ConsoleTests.DependencyInjection
         public override IContainer Build()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterModule<Persistence.DependencyInjectionModule>();
+            builder.RegisterModule<Persistence.System.Helpers.DependencyInjection.DependencyInjectionModule>();
             builder.RegisterModule<DependencyInjectionModule>();
             return builder.Build();
         }

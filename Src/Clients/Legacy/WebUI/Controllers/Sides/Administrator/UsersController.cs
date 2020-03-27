@@ -1,9 +1,10 @@
 ﻿using System.Net;
 using System.Web.Mvc;
-using Infrastructure.Application.Core.BusinessServices;
+using Infrastructure.Application.Core.Services.Business;
 using Shop.Application.Entities;
-using Shop.Legacy.WebUI.Entities;
-using Shop.Legacy.WebUI.ViewModels.Users;
+using Shop.Legacy.WebUI.System;
+using Shop.Legacy.WebUI.System.Models.Entities;
+using Shop.Legacy.WebUI.System.Models.View.Users;
 
 namespace Shop.Legacy.WebUI.Controllers.Sides.Administrator
 {

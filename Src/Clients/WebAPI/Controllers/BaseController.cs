@@ -2,8 +2,8 @@
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Shop.WebApi.Identity.Core;
-using Shop.WebApi.Identity.Infrastructure.Models;
+using Shop.WebApi.Identity.Core.Managers;
+using Shop.WebApi.Identity.Infrastructure.Models.Returnable;
 
 namespace Shop.WebApi.Controllers
 {
