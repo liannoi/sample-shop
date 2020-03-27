@@ -19,6 +19,11 @@ namespace Shop.WebApi.Controllers
         protected ModelFactory ModelFactory =>
             _modelFactory ?? (_modelFactory = new ModelFactory(Request, AppUserManager));
 
+        /// <summary>
+        ///     Not used from the client, as I did not figure out how to reach.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
         protected IHttpActionResult GetErrorResult(IdentityResult result)
         {
             if (result == null) return InternalServerError();

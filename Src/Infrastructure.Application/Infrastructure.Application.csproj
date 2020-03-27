@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Exceptions\Domain\BadRequestException.cs" />
     <Compile Include="Core\Services\Business\BaseBusinessService.cs" />
     <Compile Include="Core\Helpers\Extensions\Businessable.cs" />
     <Compile Include="Core\Services\Business\IBusinessService.cs" />
@@ -81,9 +82,9 @@
     <Compile Include="Core\Services\Data\IDataService.cs" />
     <Compile Include="Core\Helpers\DependencyInjection\ContainerConfig.cs" />
     <Compile Include="Core\Helpers\DependencyInjection\IContainerConfig.cs" />
-    <Compile Include="Core\Helpers\Fetching\ApiFetcher.cs" />
+    <Compile Include="Core\Helpers\Tools\ApiTools.cs" />
     <Compile Include="Core\Exceptions\Domain\BadStatusCodeException.cs" />
-    <Compile Include="Core\Helpers\Fetching\IApiFetcher.cs" />
+    <Compile Include="Core\Helpers\Tools\IApiTools.cs" />
     <Compile Include="Core\Services\Business\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

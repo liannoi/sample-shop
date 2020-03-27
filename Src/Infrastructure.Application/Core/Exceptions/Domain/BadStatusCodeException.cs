@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Runtime.Serialization;
 
 namespace Infrastructure.Application.Core.Exceptions.Domain
@@ -10,8 +11,18 @@ namespace Infrastructure.Application.Core.Exceptions.Domain
         {
         }
 
+        public BadStatusCodeException(HttpStatusCode statusCode)
+        {
+            StatusCode = statusCode;
+        }
+
         public BadStatusCodeException(string message) : base(message)
         {
+        }
+
+        public BadStatusCodeException(string message, HttpStatusCode statusCode) : base(message)
+        {
+            StatusCode = statusCode;
         }
 
         public BadStatusCodeException(string message, Exception inner) : base(message, inner)
@@ -23,5 +34,7 @@ namespace Infrastructure.Application.Core.Exceptions.Domain
             StreamingContext context) : base(info, context)
         {
         }
+
+        public HttpStatusCode StatusCode { get; protected set; }
     }
 }

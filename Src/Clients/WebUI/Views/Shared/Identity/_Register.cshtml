@@ -1,4 +1,4 @@
-﻿@model Shop.Legacy.WebUI.Identity.ViewModels.RegisterViewModel
+﻿@model Shop.WebUI.Models.View.RegisterViewModel
 
 @{
     ViewBag.Title = "Register";
@@ -17,6 +17,7 @@
             @Html.LabelFor(model => model.Email, htmlAttributes: new {@class = "col-md-2"}, labelText: "Email")
             <div class="col-md-4">
                 @Html.TextBoxFor(model => model.Email, new {@class = "form-control mb-3"})
+                @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
             </div>
         </div>
 
@@ -24,6 +25,7 @@
             @Html.LabelFor(model => model.Password, htmlAttributes: new {@class = "col-md-2"}, labelText: "Password")
             <div class="col-md-4">
                 @Html.PasswordFor(model => model.Password, new {@class = "form-control mb-3"})
+                @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
             </div>
         </div>
 
@@ -31,6 +33,7 @@
             @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new {@class = "col-md-2"}, labelText: "Confirm password")
             <div class="col-md-4">
                 @Html.PasswordFor(model => model.ConfirmPassword, new {@class = "form-control mb-3"})
+                @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
             </div>
         </div>
 

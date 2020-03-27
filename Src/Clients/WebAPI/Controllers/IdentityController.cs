@@ -10,12 +10,6 @@ namespace Shop.WebApi.Controllers
 {
     public class IdentityController : BaseController
     {
-        #region Test
-
-        [Authorize]
-
-        #endregion
-
         [HttpGet]
         [Route("api/identity/users")]
         public IHttpActionResult GetAllUsers()
