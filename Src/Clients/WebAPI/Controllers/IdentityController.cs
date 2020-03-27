@@ -46,5 +46,16 @@ namespace Shop.WebApi.Controllers
                 : Created(new Uri(Url.Link(Consts.GetUserByIdActionName, new {id = user.Id})),
                     ModelFactory.Create(user));
         }
+
+        [Authorize]
+        [Route("api/identity/users/delete/{id}")]
+        [HttpDelete]
+        public async Task<IHttpActionResult> DeleteUser(string id)
+        {
+            var appUser = await AppUserManager.FindByIdAsync(id);
+            if (appUser == null) return NotFound();
+            var result = await AppUserManager.DeleteAsync(appUser);
+            return !result.Succeeded ? GetErrorResult(result) : Ok();
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Shop.WebApi.Identity.Core
         public static AppUserManager Create(IdentityFactoryOptions<AppUserManager> options, IOwinContext context)
         {
             var manager = new AppUserManager(new UserStore<AppUser>(context.Get<ShopIdentityWebApiContext>()));
-            
+
             manager.UserValidator = new UserValidator<AppUser>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
