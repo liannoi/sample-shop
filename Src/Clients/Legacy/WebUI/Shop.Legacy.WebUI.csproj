@@ -290,7 +290,7 @@
     <Compile Include="Controllers\Sides\Administrator\ManufacturersController.cs" />
     <Compile Include="Controllers\Sides\Administrator\PhotosController.cs" />
     <Compile Include="Controllers\Sides\Administrator\UsersController.cs" />
-    <Compile Include="System\DependencyInjection\ContainerConfig.cs" />
+    <Compile Include="System\Helpers\DependencyInjection\ContainerConfig.cs" />
     <Compile Include="System\Models\Entities\Cart.cs" />
     <Compile Include="System\Models\Entities\CartExtension.cs" />
     <Compile Include="System\Models\Entities\UserCart.cs" />

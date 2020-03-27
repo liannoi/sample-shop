@@ -5,7 +5,7 @@ using Autofac.Integration.Mvc;
 using Infrastructure.Application.Core.Helpers.DependencyInjection;
 using Shop.Application.Helpers.DependencyInjection;
 
-namespace Shop.Legacy.WebUI.System.DependencyInjection
+namespace Shop.Legacy.WebUI.System.Helpers.DependencyInjection
 {
     public sealed class ContainerConfig : ContainerConfig<DependencyInjectionModule>
     {
