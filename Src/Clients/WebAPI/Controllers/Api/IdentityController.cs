@@ -1,16 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Infrastructure.Application.Core.Helpers.Tools;
+using Microsoft.AspNet.Identity;
 using Shop.Clients.WebApi.Core.Filters.Api;
 using Shop.Clients.WebApi.Core.Identity;
 using Shop.Clients.WebApi.Core.Identity.Core.Models;
 using Shop.Clients.WebApi.Core.Identity.Infrastructure.Models.Binding;
+using Shop.Clients.WebApi.Core.Identity.Infrastructure.Models.Returnable;
 
 namespace Shop.Clients.WebApi.Controllers.Api
 {
     public class IdentityController : BaseController
     {
+        private readonly IApiTools _apiTools;
+
+        public IdentityController()
+        {
+            _apiTools = new ApiTools();
+        }
+
         [HttpGet]
         [Route("api/identity/users")]
         public IHttpActionResult GetAllUsers()
@@ -47,6 +58,32 @@ namespace Shop.Clients.WebApi.Controllers.Api
                 ? GetErrorResult(result)
                 : Created(new Uri(Url.Link(Consts.GetUserByIdActionName, new {id = user.Id})),
                     ModelFactory.Create(user));
+        }
+
+        [HttpPost]
+        [Route("api/identity/users/access")]
+        [ValidateModel]
+        public async Task<IHttpActionResult> AccessUser(LoginBindingModel bindingModel)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var result = await AppUserManager.FindAsync(bindingModel.Email, bindingModel.Password);
+            return result == null
+                ? GetErrorResult(new IdentityResult("Invalid username or password."))
+                : Ok(ModelFactory.Create(result));
+        }
+
+        [HttpPost]
+        [Route("api/identity/users/access/token")]
+        public async Task<IHttpActionResult> GetAccessUserToken([FromBody] JwtAccessReturnModel access)
+        {
+            return Ok(await _apiTools.RequestToken<JwtReturnModel>("http://localhost:51480/oauth/token",
+                new Dictionary<string, string>
+                {
+                    {"username", (await AppUserManager.FindByIdAsync(access.Id)).Email},
+                    {"password", access.ClearPassword},
+                    {"grant_type", "password"}
+                }));
         }
 
         //[Authorize]

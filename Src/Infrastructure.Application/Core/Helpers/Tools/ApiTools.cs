@@ -10,12 +10,11 @@ namespace Infrastructure.Application.Core.Helpers.Tools
 {
     public class ApiTools : IApiTools
     {
-        public async Task<IEnumerable<TEntity>> FetchAsync<TEntity>(string uri)
-            where TEntity : class, new()
+        public async Task<TEntity> FetchAsync<TEntity>(string uri) where TEntity : class, new()
         {
             if (uri == null) throw new ArgumentNullException(nameof(uri));
 
-            return await ContinueWithDeserializeAsync<List<TEntity>>(new HttpClient().GetAsync(uri));
+            return await ContinueWithDeserializeAsync<TEntity>(new HttpClient().GetAsync(uri));
         }
 
         public async Task<TEntity> PostAsync<TEntity>(string uri, ByteArrayContent content) where TEntity : class, new()
@@ -34,6 +33,24 @@ namespace Infrastructure.Application.Core.Helpers.Tools
             var byteContent = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(value)));
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             return await ContinueWithDeserializeAsync<TEntity>(new HttpClient().PostAsync(uri, byteContent));
+        }
+
+        public async Task<TModel> RequestToken<TModel>(string uri, IEnumerable<KeyValuePair<string, string>> value)
+            where TModel : class, new()
+        {
+            if (uri == null) throw new ArgumentNullException(nameof(uri));
+            if (value == null) throw new ArgumentNullException(nameof(value));
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var content = new FormUrlEncodedContent(value))
+                {
+                    content.Headers.Clear();
+                    content.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
+                    var response = await httpClient.PostAsync(uri, content);
+                    return JsonConvert.DeserializeObject<TModel>(await response.Content.ReadAsStringAsync());
+                }
+            }
         }
 
         #region Helpers
