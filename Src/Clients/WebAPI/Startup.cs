@@ -11,11 +11,11 @@ using Microsoft.Owin.Security.Jwt;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using Owin;
-using Shop.WebApi.Identity.Core.Managers;
-using Shop.WebApi.Identity.Core.Stores;
-using Shop.WebApi.Identity.Infrastructure.Providers;
+using Shop.Clients.WebApi.Core.Identity.Core.Managers;
+using Shop.Clients.WebApi.Core.Identity.Core.Stores;
+using Shop.Clients.WebApi.Core.Identity.Infrastructure.Providers;
 
-namespace Shop.WebApi
+namespace Shop.Clients.WebApi
 {
     public class Startup
     {
@@ -46,7 +46,7 @@ namespace Shop.WebApi
                 TokenEndpointPath = new PathString("/oauth/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
                 Provider = new CustomOAuthProvider(),
-                AccessTokenFormat = new CustomJwtFormat("http://localhost:54351")
+                AccessTokenFormat = new CustomJwtFormat("http://localhost:51480")
             };
 
             // OAuth 2.0 Bearer Access Token Generation
@@ -64,7 +64,7 @@ namespace Shop.WebApi
                     AllowedAudiences = new[] {"Any"},
                     IssuerSecurityKeyProviders = new IIssuerSecurityKeyProvider[]
                     {
-                        new SymmetricKeyIssuerSecurityKeyProvider("http://localhost:54351", secret)
+                        new SymmetricKeyIssuerSecurityKeyProvider("http://localhost:51480", secret)
                     }
                 });
         }
