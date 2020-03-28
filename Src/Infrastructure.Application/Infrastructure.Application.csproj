@@ -74,16 +74,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\BusinessServices\BaseBusinessService.cs" />
-    <Compile Include="Core\BusinessServices\Helpers\Businessable.cs" />
-    <Compile Include="Core\BusinessServices\IBusinessService.cs" />
-    <Compile Include="Core\DataServices\BaseDataService.cs" />
-    <Compile Include="Core\DataServices\IDataService.cs" />
-    <Compile Include="Core\DependencyInjection\ContainerConfig.cs" />
-    <Compile Include="Core\DependencyInjection\IContainerConfig.cs" />
-    <Compile Include="Core\Helpers\ApiFetcher.cs" />
-    <Compile Include="Core\Helpers\IApiFetcher.cs" />
-    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Services\Business\BaseBusinessService.cs" />
+    <Compile Include="Core\Helpers\Extensions\Businessable.cs" />
+    <Compile Include="Core\Services\Business\IBusinessService.cs" />
+    <Compile Include="Core\Services\Data\BaseDataService.cs" />
+    <Compile Include="Core\Services\Data\IDataService.cs" />
+    <Compile Include="Core\Helpers\DependencyInjection\ContainerConfig.cs" />
+    <Compile Include="Core\Helpers\DependencyInjection\IContainerConfig.cs" />
+    <Compile Include="Core\Helpers\Tools\ApiTools.cs" />
+    <Compile Include="Core\Helpers\Tools\IApiTools.cs" />
+    <Compile Include="Core\Services\Business\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

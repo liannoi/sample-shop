@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Shop.Legacy.WebUI.MvcApplication" Language="C#" %>

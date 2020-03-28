@@ -66,9 +66,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependencyInjectionModule.cs" />
+    <Compile Include="System\Helpers\DependencyInjection\DependencyInjectionModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShopContext.cs" />
+    <Compile Include="System\ShopContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -80,6 +80,7 @@
       <Name>Shop.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

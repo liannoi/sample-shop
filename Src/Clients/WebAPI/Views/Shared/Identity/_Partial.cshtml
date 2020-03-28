@@ -1,0 +1,55 @@
+﻿@* TODO: Change check *@
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("SignOut", "Identity", FormMethod.Post, new {id = "logoutForm"}))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="btn-group dropleft">
+            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                UserName
+            </button>
+            <div class="dropdown-menu">
+                <div class="dropdown-header">Admin-side</div>
+                <button class="dropdown-item" type="button">@Html.ActionLink("Manufacturers", "Index", "Manufacturers", null, new {@class = "text-dark nav-link"})</button>
+                <button class="dropdown-item" type="button">@Html.ActionLink("Categories", "Index", "Categories", null, new {@class = "text-dark nav-link"})</button>
+                <button class="dropdown-item" type="button">@Html.ActionLink("Goods", "Index", "Goods", null, new {@class = "text-dark nav-link"})</button>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" type="button">@Html.ActionLink("Catalog", "Index", "Users", null, new {@class = "text-dark nav-link"})</button>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" type="button" id="btn-cmd-sign-out">
+                    <a class="text-dark nav-link" href="#">Sign out</a>
+                </button>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <li>
+        <div class="btn-group mt-1">
+            <button type="button" id="btn-cmd-register" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                Register
+            </button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item" type="button">@Html.ActionLink("User", "RegisterUser", "Home", null, new {@class = "text-dark nav-link"})</button>
+                <button class="dropdown-item" type="button">@Html.ActionLink("Administrator", "RegisterAdministrator", "Home", null, new {@class = "text-dark nav-link"})</button>
+            </div>
+        </div>
+    </li>
+    <li>@Html.ActionLink("Log in", "Login", "UserIdentity", null, new {id = "loginLink", @class = "ml-3 btn btn-sm mt-1 btn-success"})</li>
+}
+
+<script>
+    function runtime() {
+        const tmp = document.querySelector('#btn-cmd-sign-out');
+        if (tmp == null) {
+            return;
+        }
+
+        tmp.addEventListener('click', function() { document.querySelector('#logoutForm').submit(); });
+    }
+
+    runtime();
+</script>

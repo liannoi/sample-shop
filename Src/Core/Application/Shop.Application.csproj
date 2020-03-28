@@ -71,7 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependencyInjectionModule.cs" />
+    <Compile Include="Helpers\DependencyInjection\DependencyInjectionModule.cs" />
     <Compile Include="Entities\CategoryDto.cs" />
     <Compile Include="Entities\GoodDto.cs" />
     <Compile Include="Entities\ManufacturerDto.cs" />

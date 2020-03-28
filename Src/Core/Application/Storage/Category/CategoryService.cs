@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using Infrastructure.Application.Core.DataServices;
+using Infrastructure.Application.Core.Services.Data;
 
 namespace Shop.Application.Storage.Category
 {
