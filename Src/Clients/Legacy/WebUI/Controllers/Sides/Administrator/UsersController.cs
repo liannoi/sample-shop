@@ -33,8 +33,6 @@ namespace Shop.Legacy.WebUI.Controllers.Sides.Administrator
         /// <param name="goodId"></param>
         /// <returns></returns>
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
         public HttpStatusCodeResult Add(int goodId)
         {
             SaveCartToSession(goodId);
@@ -43,7 +41,6 @@ namespace Shop.Legacy.WebUI.Controllers.Sides.Administrator
 
         // TODO: This view, javascript - ajax.
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public ViewResult Cart()
         {
             return View(new CartViewModel(_goodRepository, ReadCartFromSession()));
@@ -57,7 +54,6 @@ namespace Shop.Legacy.WebUI.Controllers.Sides.Administrator
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
         public HttpStatusCodeResult Update(int goodId, int count)
         {
             var sessionCart = ReadCartFromSession();
@@ -72,7 +68,6 @@ namespace Shop.Legacy.WebUI.Controllers.Sides.Administrator
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
         public HttpStatusCodeResult Delete(int id)
         {
             var sessionCart = ReadCartFromSession();
