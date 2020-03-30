@@ -1,6 +1,7 @@
 ﻿@using Shop.Clients.WebApi.Core.Identity.Infrastructure.Models.Returnable
 @{
-    var user = Session["CurrentUser"] as UserReturnModel;
+    var userId = Request.Cookies["jwt-userId"];
+    var user = Session[$"jwt-{userId?.Value}-user"] as UserReturnModel;
 }
 
 @if (user != null)

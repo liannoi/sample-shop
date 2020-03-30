@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using Infrastructure.Application.Core.Helpers.Tools;
@@ -42,6 +44,7 @@ namespace Shop.Clients.WebApi.Controllers.Mvc
         }
 
         [System.Web.Mvc.HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login([FromBody] LoginBindingModel bindingModel)
         {
             var result =
@@ -77,9 +80,14 @@ namespace Shop.Clients.WebApi.Controllers.Mvc
                     Id = userId
                 });
 
+            // BUG: High load.
             Session[$"jwt-{userId}"] = jwt;
-            Session["CurrentUser"] =
+            Session[$"jwt-{userId}-user"] =
                 await _apiTools.FetchAsync<UserReturnModel>($"http://localhost:51480/api/identity/users/id/{userId}");
+
+            // BUG: Unsafe.
+            var myCookie = new HttpCookie("jwt-userId") {Value = userId, Expires = DateTime.MinValue};
+            Response.Cookies.Add(myCookie);
 
             return RedirectToAction(nameof(Index));
         }
@@ -103,7 +111,7 @@ namespace Shop.Clients.WebApi.Controllers.Mvc
 
         #endregion
 
-        #region Roles
+        #region User in role
 
         [System.Web.Mvc.HttpPost]
         public async Task<ActionResult> RegisterAdministrator([FromBody] RegisterBindingModel bindingModel)
