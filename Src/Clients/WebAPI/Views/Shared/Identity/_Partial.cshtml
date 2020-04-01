@@ -1,6 +1,10 @@
-﻿@* TODO: Change check *@
+﻿@using Shop.Clients.WebApi.Core.Identity.Infrastructure.Models.Returnable
+@{
+    var userId = Request.Cookies["jwt-userId"];
+    var user = Session[$"jwt-{userId?.Value}-user"] as UserReturnModel;
+}
 
-@if (Request.IsAuthenticated)
+@if (user != null)
 {
     using (Html.BeginForm("SignOut", "Identity", FormMethod.Post, new {id = "logoutForm"}))
     {
@@ -8,7 +12,7 @@
 
         <div class="btn-group dropleft">
             <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                UserName
+                @user.UserName
             </button>
             <div class="dropdown-menu">
                 <div class="dropdown-header">Admin-side</div>
@@ -38,7 +42,7 @@ else
             </div>
         </div>
     </li>
-    <li>@Html.ActionLink("Log in", "Login", "UserIdentity", null, new {id = "loginLink", @class = "ml-3 btn btn-sm mt-1 btn-success"})</li>
+    <li>@Html.ActionLink("Log in", "Login", "Home", null, new {id = "loginLink", @class = "ml-3 btn btn-sm mt-1 btn-success"})</li>
 }
 
 <script>

@@ -306,6 +306,8 @@
     <Compile Include="ClientApp\Consts.cs" />
     <Compile Include="Controllers\Api\BaseController.cs" />
     <Compile Include="Controllers\Api\IdentityController.cs" />
+    <Compile Include="Core\Identity\Infrastructure\Models\Returnable\JwtAccessReturnModel.cs" />
+    <Compile Include="Core\Identity\Infrastructure\Models\Returnable\JwtReturnModel.cs" />
     <Compile Include="Controllers\Mvc\HomeController.cs" />
     <Compile Include="Core\Filters\Api\ValidateModelAttribute.cs" />
     <Compile Include="Core\Filters\Mvc\ValidateModelAttribute.cs" />
@@ -347,6 +349,7 @@
     <Content Include="Views\Home\RegisterAdministrator.cshtml" />
     <Content Include="Views\Home\RegisterUser.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

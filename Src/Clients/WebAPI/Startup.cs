@@ -11,6 +11,7 @@ using Microsoft.Owin.Security.Jwt;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using Owin;
+using Shop.Clients.WebApi.Core.Filters.Api;
 using Shop.Clients.WebApi.Core.Identity.Core.Managers;
 using Shop.Clients.WebApi.Core.Identity.Core.Stores;
 using Shop.Clients.WebApi.Core.Identity.Infrastructure.Providers;
@@ -25,6 +26,8 @@ namespace Shop.Clients.WebApi
             ConfigureOAuthTokenConsumption(app);
 
             var httpConfig = new HttpConfiguration();
+            httpConfig.Filters.Add(new ValidateModelAttribute());
+
             RemoveXmlFormatter(httpConfig);
             ConfigureWebApi(httpConfig);
             app.UseCors(CorsOptions.AllowAll);
